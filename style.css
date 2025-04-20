@@ -1,0 +1,124 @@
+/* Base styles */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    overflow: hidden;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Canvas container */
+#canvas-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Input elements */
+input, button {
+    position: relative;
+    z-index: 10;
+    pointer-events: auto;
+}
+
+/* Info text */
+#info {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+    z-index: 2;
+    pointer-events: none;
+    letter-spacing: 0.5px;
+    transition: opacity 0.5s ease;
+}
+
+#info:hover {
+    opacity: 0.8;
+}
+
+/* Loading screen */
+#loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 18px;
+    z-index: 3;
+    text-align: center;
+    letter-spacing: 1px;
+    animation: pulse 2s infinite;
+    pointer-events: none;
+}
+
+/* Loading animation */
+@keyframes pulse {
+    0% {
+        opacity: 0.7;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 0.7;
+    }
+}
+
+/* Utility classes */
+.hidden {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #info {
+        font-size: 10px;
+        bottom: 15px;
+        left: 15px;
+    }
+    
+    #loading {
+        font-size: 16px;
+    }
+    
+    input, button {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #000;
+    }
+    
+    #info {
+        color: rgba(255, 255, 255, 0.5);
+    }
+    
+    #loading {
+        color: rgba(255, 255, 255, 0.7);
+    }
+    
+    input {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    button {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+} 
